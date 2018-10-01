@@ -56,63 +56,63 @@ If you want to learn more about Python3 and `pip`, please refer to `https://www.
 ### using as a module
 
 
-        In [5]: from sgejob import UserJobs, SgeJob, record_jobs
+      In [5]: from sgejob import UserJobs, SgeJob, record_jobs
 
-        In [6]: UserJobs?
-        Init signature: UserJobs(user=None, qstat='qstat')
-        Docstring:
-        `UserJobs` object has one attribute `jobs`, which is a dictionary, whose keys are the sge job numbers.
+      In [6]: UserJobs?
+      Init signature: UserJobs(user=None, qstat='qstat')
+      Docstring:
+      `UserJobs` object has one attribute `jobs`, which is a dictionary, whose keys are the sge job numbers.
 
-        Then `UserJobs.jobs[job_number]` is also a dictionary, whic has following
-        keys:
+      Then `UserJobs.jobs[job_number]` is also a dictionary, whic has following
+      keys:
 
-        ['JB_job_number', 'JAT_prio', 'JB_name', 'JB_owner', 'state',
-         'JAT_start_time', 'queue_name', 'slots']
-        File:           ~/soft/script/sgejob/source/v0.0.1/sgejob/sgejob.py
-        Type:           type
+      ['JB_job_number', 'JAT_prio', 'JB_name', 'JB_owner', 'state',
+       'JAT_start_time', 'queue_name', 'slots']
+      File:           ~/soft/script/sgejob/source/v0.0.1/sgejob/sgejob.py
+      Type:           type
 
-        In [7]: SgeJob?
-        Init signature: SgeJob(job_number=None, qstat='qstat')
-        Docstring:
-        `SgeJob` object has two attributes: `infor` and `usage`.
+      In [7]: SgeJob?
+      Init signature: SgeJob(job_number=None, qstat='qstat')
+      Docstring:
+      `SgeJob` object has two attributes: `infor` and `usage`.
 
-        `SgeJob.infor` is a dictionary, corresponding to the output content of
-        `qstat -j job_number`, where the first column is the key, the second column
-        is the value.
+      `SgeJob.infor` is a dictionary, corresponding to the output content of
+      `qstat -j job_number`, where the first column is the key, the second column
+      is the value.
 
-        `SgeJob.usage` is also a dictionary, whose content is from
-        `SgeJob.infor['usage         1']`.
-
-
-        `SgeJob.infor` has following keys:
-
-        ['current_time', 'job_number', 'exec_file', 'submission_time', 'owner',
-         'uid', 'group', 'gid', 'sge_o_home', 'sge_o_log_name', 'sge_o_path',
-         'sge_o_shell', 'sge_o_workdir', 'sge_o_host', 'account', 'cwd',
-         'hard resource_list', 'mail_list', 'notify', 'job_name', 'jobshare',
-         'hard_queue_list', 'env_list', 'script_file', 'project', 'binding',
-         'job_type', 'usage         1', 'binding       1', 'scheduling info']
+      `SgeJob.usage` is also a dictionary, whose content is from
+      `SgeJob.infor['usage         1']`.
 
 
-        `SgeJob.usage` has following keys:
+      `SgeJob.infor` has following keys:
 
-        ['current_time', 'job_number', 'cpu', 'mem', 'io', 'vmem', 'maxvmem']
-        File:           ~/soft/script/sgejob/source/v0.0.1/sgejob/sgejob.py
-        Type:           type
+      ['current_time', 'job_number', 'exec_file', 'submission_time', 'owner',
+       'uid', 'group', 'gid', 'sge_o_home', 'sge_o_log_name', 'sge_o_path',
+       'sge_o_shell', 'sge_o_workdir', 'sge_o_host', 'account', 'cwd',
+       'hard resource_list', 'mail_list', 'notify', 'job_name', 'jobshare',
+       'hard_queue_list', 'env_list', 'script_file', 'project', 'binding',
+       'job_type', 'usage         1', 'binding       1', 'scheduling info']
 
-        In [8]: record_jobs?
-        Signature: record_jobs(user=None, qstat='qstat', running_only=True, infor_df_csvfile=None, usage_df_csvfile=None)
-        Docstring:
-        Collect job information and append to infor_df_csvfile and
-        usage_df_csvfile.
 
-        user=None, collect current user's jobs.
+      `SgeJob.usage` has following keys:
 
-        if running_only=True, it will only collect the running jobs.
+      ['current_time', 'job_number', 'cpu', 'mem', 'io', 'vmem', 'maxvmem']
+      File:           ~/soft/script/sgejob/source/v0.0.1/sgejob/sgejob.py
+      Type:           type
 
-        return: None.
-        File:      ~/soft/script/sgejob/source/v0.0.1/sgejob/sgejob.py
-        Type:      function
+      In [8]: record_jobs?
+      Signature: record_jobs(user=None, qstat='qstat', running_only=True, infor_df_csvfile=None, usage_df_csvfile=None)
+      Docstring:
+      Collect job information and append to infor_df_csvfile and
+      usage_df_csvfile.
+
+      user=None, collect current user's jobs.
+
+      if running_only=True, it will only collect the running jobs.
+
+      return: None.
+      File:      ~/soft/script/sgejob/source/v0.0.1/sgejob/sgejob.py
+      Type:      function
 
 
 ## 5 Citations
